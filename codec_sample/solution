@@ -1,0 +1,10 @@
+1.  8k_g729_head32_LeftForwardRightBack.voc
+    remove file 32 g729
+    size=`du -b g729 | awk '{print $1}'`
+    size=$[ $size / 2 ]
+    split -b $size g729 g729_
+    ffmpeg -codec g729 -f g729 -i g729_aa -ac 1 -ar 8000 -ab 128k 1.wav
+    ffmpeg -codec g729 -f g729 -i g729_ab -ac 1 -ar 8000 -ab 128k 2.wav
+    ffmpeg -i 1.wav -i 2.wav -filter_complex amix=inputs=2 3.wav
+
+2.  
