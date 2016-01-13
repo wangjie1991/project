@@ -1,0 +1,19 @@
+gcc -o3 -g cutWave.c -o cutWave
+gcc -o3 -g splitFile -o splitFile
+
+
+//display file in binary
+hexdump -C 10708.wav | less
+
+
+//decode informal .wav to formal .wav
+ffmpeg -i 10708.that f_10708.that
+
+
+
+		   
+
+
+
+//display detail information of wav
+soxi 10708.wav
